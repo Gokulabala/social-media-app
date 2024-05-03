@@ -13,6 +13,7 @@ import { useEffect, useState } from 'react';
 import {format} from 'date-fns';
 import api from './api/posts';
 import EditPost from './Components/EditPost';
+import useWindowSize from './hooks/useWindowSize';
 
 
 
@@ -28,6 +29,7 @@ function App() {
   const [editTitle, setEditTitle] = useState('')
   const[editBody, setEditBody] = useState('')
   const navigate = useNavigate()
+  const {width} = useWindowSize()
 
   useEffect(()=>{
     const fetchPosts = async ()=>{
@@ -155,6 +157,7 @@ function App() {
 
       <Header 
         title = {"Social Media App"}
+        width = {width}
       />
       <Nav 
         search = {search}
